@@ -97,14 +97,13 @@ public class App {
 		
 	}
 	
-	public static int obtenerCompFunc (int medicionuno) {
+	public static int obtenerCompFunc (int medicionuno) throws Exception {
 		
 		
 		int res = -1;
 		
-		if (medicionuno < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if (medicionuno < 0 || medicionuno > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicionuno >= 0 && medicionuno < 10) {
 			res =  0;
 		} else if (medicionuno >= 10 && medicionuno < 35) {
@@ -117,23 +116,19 @@ public class App {
 			res =  3;
 		} else if (medicionuno >= 90 && medicionuno <= 100) {
 			res =  4;
-		} else if (medicionuno > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerCorFunc (int mediciondos) {
+	public static int obtenerCorFunc (int mediciondos) throws Exception {
 		
 		
-		 int res = -1;
+		int res = -1;
 		
-		if(mediciondos < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if (mediciondos < 0 || mediciondos > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (mediciondos >= 0 && mediciondos < 10) {
 			res =  0;
 		} else if (mediciondos >= 10 && mediciondos < 35) {
@@ -146,23 +141,19 @@ public class App {
 			res =  3;
 		} else if (mediciondos >= 90 && mediciondos <= 100) {
 			res =  5;
-		} else if (mediciondos > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerPertFunc (int mediciontres) {
+	public static int obtenerPertFunc (int mediciontres) throws Exception {
 		
 		
 		int res = -1;
 		
-		if(mediciontres < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if (mediciontres < 0 || mediciontres > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (mediciontres >= 0 && mediciontres < 10) {
 			res =  0;
 		} else if (mediciontres >= 10 && mediciontres < 35) {
@@ -175,25 +166,16 @@ public class App {
 			res =  4;
 		} else if (mediciontres >= 90 && mediciontres <= 100) {
 			res =  5;
-		} else if (mediciontres > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerAdecuacionFuncional (int compfunc, int corfunc, int pertfunc) {
+	public static int obtenerAdecuacionFuncional (int compfunc, int corfunc, int pertfunc) throws Exception {
 
-		if(compfunc < 0 || corfunc < 0 || pertfunc < 0) {
-			System.out.println("Error: Un parametro tiene un valor por debajo de lo permitido");
-			System.exit(-1);
-		}
-		
-		if(compfunc > 4 || corfunc > 5 || pertfunc > 5) {
-			System.out.println("Error: Un parametro tiene un valor por encima de lo permitido");
-			System.exit(-1);
+		if(compfunc < 0 || corfunc < 0 || pertfunc < 0 || compfunc > 4 || corfunc > 5 || pertfunc > 5) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		}
 		
 		int[] v = new int[] {compfunc, corfunc, pertfunc};
@@ -203,13 +185,12 @@ public class App {
 		return minimo;
 	}
 
-	public static int obtenerModu (int medicioncuatro) {
+	public static int obtenerModu (int medicioncuatro) throws Exception {
 		
 		int res = -1;
 		
-		if(medicioncuatro < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if(medicioncuatro < 0 || medicioncuatro > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicioncuatro >= 0 && medicioncuatro < 10) {
 			res =  0;
 		} else if (medicioncuatro >= 10 && medicioncuatro < 35) {
@@ -222,23 +203,19 @@ public class App {
 			res =  3;
 		} else if (medicioncuatro >= 90 && medicioncuatro <= 100) {
 			res =  4;
-		} else if (medicioncuatro > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerReusa (int medicioncinco) {
+	public static int obtenerReusa (int medicioncinco) throws Exception {
 		
 		
 		int res = -1;
 		
-		if(medicioncinco < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if(medicioncinco < 0 || medicioncinco > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicioncinco >= 0 && medicioncinco < 10) {
 			res =  0;
 		} else if (medicioncinco >= 10 && medicioncinco < 35) {
@@ -251,23 +228,19 @@ public class App {
 			res =  3;
 		} else if (medicioncinco >= 90 && medicioncinco <= 100) {
 			res =  5;
-		} else if (medicioncinco > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerAna (int medicionseis) {
+	public static int obtenerAna (int medicionseis) throws Exception {
 		
 		
 		int res = -1;
 		
-		if(medicionseis < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if(medicionseis < 0 || medicionseis > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicionseis >= 0 && medicionseis < 10) {
 			res =  0;
 		} else if (medicionseis >= 10 && medicionseis < 35) {
@@ -280,23 +253,19 @@ public class App {
 			res =  3;
 		} else if (medicionseis >= 90 && medicionseis <= 100) {
 			res =  5;
-		} else if (medicionseis > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 
 	}
 
-	public static int obtenerCapModificacion (int medicionsiete) {
+	public static int obtenerCapModificacion (int medicionsiete) throws Exception {
 		
 		
 		int res = -1;
 		
-		if(medicionsiete < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if(medicionsiete < 0 || medicionsiete > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicionsiete >= 0 && medicionsiete < 10) {
 			res =  0;
 		} else if (medicionsiete >= 10 && medicionsiete < 35) {
@@ -309,22 +278,18 @@ public class App {
 			res =  4;
 		} else if (medicionsiete >= 90 && medicionsiete <= 100) {
 			res =  5;
-		} else if (medicionsiete > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 	}
 
-	public static int obtenerCapSerProbado(int medicionocho) {
+	public static int obtenerCapSerProbado(int medicionocho) throws Exception {
 		
 		
 		int res = -1;
 		
-		if(medicionocho < 0) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
+		if(medicionocho < 0 || medicionocho > 100) {
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		} else if (medicionocho >= 0 && medicionocho < 10) {
 			res =  0;
 		} else if (medicionocho >= 10 && medicionocho < 35) {
@@ -337,24 +302,16 @@ public class App {
 			res =  4;
 		} else if (medicionocho >= 90 && medicionocho <= 100) {
 			res =  4;
-		} else if (medicionocho > 100) {
-			System.out.println("Error: El valor introducido no es valido. Fin de programa");
-			System.exit(-1);
 		}
 		
 		return res;
 	}
 
-	public static int obtenerMantenibilidad (int modularidad, int reusabilidad, int analizabilidad, int capmodificacion, int capserprobado) {
+	public static int obtenerMantenibilidad (int modularidad, int reusabilidad, int analizabilidad, int capmodificacion, int capserprobado) throws Exception {
 
-		if(modularidad < 0 ||reusabilidad < 0 ||analizabilidad< 0 ||capmodificacion <0 ||capserprobado<0){
-			System.out.println("Error: Un parametro tiene un valor por debajo de lo permitido");
-			System.exit(-1);
-		}
-		
-		if(modularidad > 4 || reusabilidad > 5 || analizabilidad > 5 || capmodificacion > 5 || capserprobado > 4) {
-			System.out.println("Error: Un parametro tiene un valor por encima de lo permitido");
-			System.exit(-1);
+		if(modularidad < 0 ||reusabilidad < 0 ||analizabilidad < 0 ||capmodificacion < 0 ||capserprobado < 0 
+				|| modularidad > 4 || reusabilidad > 5 || analizabilidad > 5 || capmodificacion > 5 || capserprobado > 4){
+			throw new Exception("Error: El valor introducido no es valido. Fin de programa");
 		}
 		
 		int[] v = new int[] {modularidad, reusabilidad, analizabilidad, capmodificacion, capserprobado};
@@ -398,7 +355,7 @@ public class App {
 			tecto = tengohambre.nextInt();  // Read user input
 			tengohambre.close();
 		} catch (Exception e) {
-			System.out.print("Error al insertar un valor. Fin.");
+			System.out.print("Error al insertar un valor. Fin de programa");
 			System.exit(-1);
 		}
 
