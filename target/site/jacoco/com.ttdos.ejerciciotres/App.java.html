@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JunitExample Maven Webapp</a> &gt; <a href="index.source.html" class="el_package">com.ttdos.ejerciciotres</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package com.ttdos.ejerciciotres;
+
+import java.util.Scanner;  // Import the Scanner class
+
+<span class="fc" id="L5">public class App {</span>
+
+
+	public static void main(String[] args) throws Exception {
+		
+<span class="nc" id="L10">		int medicion = 0; //Medicion</span>
+<span class="nc" id="L11">		int compfunc = 0; //Completitud Funcional</span>
+<span class="nc" id="L12">		int corfunc = 0; //Correccion Funcional</span>
+<span class="nc" id="L13">		int pertfunc = 0; //Pertinencia Funcional</span>
+<span class="nc" id="L14">		int adfuncional = 0; //Adecuacion Funcional</span>
+		
+<span class="nc" id="L16">		int modu = 0; //Modularidad</span>
+<span class="nc" id="L17">		int reusa = 0; //Reusabilidad</span>
+<span class="nc" id="L18">		int analiza = 0; //Analizabilidad</span>
+<span class="nc" id="L19">		int capmod = 0;//Capacidad de ser modificado</span>
+<span class="nc" id="L20">		int capserprobado = 0; //Capacidad de ser probado</span>
+<span class="nc" id="L21">		int mantenibilidad = 0; //Mantenibilidad</span>
+		
+		boolean eva; //Evaluacion de Calidad
+		
+<span class="nc" id="L25">		System.out.println(&quot;Bienvenido al programa de evaluaci�n de calidad&quot;);</span>
+		
+<span class="nc" id="L27">		System.out.println(&quot;Inserte la medici�n de Completitud Funcional&quot;);</span>
+<span class="nc" id="L28">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L29">		medicion = leerCosas();</span>
+<span class="nc" id="L30">		compfunc = obtenerCompFunc(medicion);</span>
+<span class="nc" id="L31">		System.out.println(&quot;La Completitud Funcional tiene valor: &quot;+compfunc);</span>
+		
+		
+<span class="nc" id="L34">		System.out.println(&quot;Inserte la medici�n de Correccion Funcional&quot;);</span>
+<span class="nc" id="L35">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L36">		medicion = leerCosas();</span>
+<span class="nc" id="L37">		corfunc = obtenerCorFunc(medicion);</span>
+<span class="nc" id="L38">		System.out.println(&quot;La Correccion Funcional tiene valor: &quot;+corfunc);</span>
+		
+		
+<span class="nc" id="L41">		System.out.println(&quot;Inserte la medici�n de Pertinencia Funcional&quot;);</span>
+<span class="nc" id="L42">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L43">		medicion = leerCosas();</span>
+<span class="nc" id="L44">		pertfunc = obtenerPertFunc(medicion);</span>
+<span class="nc" id="L45">		System.out.println(&quot;La Pertinencia Funcional tiene valor: &quot;+pertfunc);</span>
+		
+		
+<span class="nc" id="L48">		adfuncional = obtenerAdecuacionFuncional(compfunc, corfunc, pertfunc);</span>
+<span class="nc" id="L49">		System.out.println(&quot;La Adecuaci�n Funcional tiene valor: &quot;+adfuncional);</span>
+		
+		
+<span class="nc" id="L52">		System.out.println(&quot;Inserte la medici�n de Modularidad&quot;);</span>
+<span class="nc" id="L53">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L54">		medicion = leerCosas();</span>
+<span class="nc" id="L55">		modu = obtenerModu(medicion);</span>
+<span class="nc" id="L56">		System.out.println(&quot;La Modularidad tiene valor: &quot;+modu);</span>
+		
+		
+<span class="nc" id="L59">		System.out.println(&quot;Inserte la medici�n de Reusabilidad&quot;);</span>
+<span class="nc" id="L60">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L61">		medicion = leerCosas();</span>
+<span class="nc" id="L62">		reusa = obtenerReusa(medicion);</span>
+<span class="nc" id="L63">		System.out.println(&quot;La Reusabilidad tiene valor: &quot;+reusa);</span>
+		
+		
+<span class="nc" id="L66">		System.out.println(&quot;Inserte la medici�n de Analizabilidad&quot;);</span>
+<span class="nc" id="L67">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L68">		medicion = leerCosas();</span>
+<span class="nc" id="L69">		analiza = obtenerAna(medicion);</span>
+<span class="nc" id="L70">		System.out.println(&quot;La Analizabilidad tiene valor: &quot;+analiza);</span>
+		
+		
+<span class="nc" id="L73">		System.out.println(&quot;Inserte la medici�n de Capacidad de ser modificado&quot;);</span>
+<span class="nc" id="L74">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L75">		medicion = leerCosas();</span>
+<span class="nc" id="L76">		capmod = obtenerCapModificacion(medicion);</span>
+<span class="nc" id="L77">		System.out.println(&quot;La Capacidad de ser modificado tiene valor: &quot;+capmod);</span>
+		
+		
+<span class="nc" id="L80">		System.out.println(&quot;Inserte la medici�n de Capacidad de ser probado&quot;);</span>
+<span class="nc" id="L81">		System.out.println(&quot;Inserte un n�mero del 0 al 100&quot;);</span>
+<span class="nc" id="L82">		medicion = leerCosas();</span>
+<span class="nc" id="L83">		capserprobado = obtenerReusa(medicion);</span>
+<span class="nc" id="L84">		System.out.println(&quot;La Capacidad de ser probado tiene valor: &quot;+capserprobado);</span>
+		
+<span class="nc" id="L86">		mantenibilidad = obtenerMantenibilidad(modu, reusa, analiza, capmod, capserprobado);</span>
+<span class="nc" id="L87">		System.out.println(&quot;La Mantenibilidad tiene valor: &quot;+mantenibilidad);</span>
+		
+<span class="nc" id="L89">		System.out.println(&quot;RESULTADO DE EVALUACION DE CALIDAD&quot;);</span>
+<span class="nc" id="L90">		eva = evaluacionCalidad(mantenibilidad, adfuncional);</span>
+		
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		if (eva) {</span>
+<span class="nc" id="L93">			System.out.println(&quot;El Sistema evaluado HA PASADO la evaluacion&quot;);</span>
+<span class="nc" id="L94">		} else {</span>
+<span class="nc" id="L95">			System.out.println(&quot;El Sistema evaluado NO HA PASADO la evaluacion&quot;);</span>
+		}
+		
+<span class="nc" id="L98">	}</span>
+	
+	public static int obtenerCompFunc (int medicionuno) throws Exception {
+		
+		
+<span class="fc" id="L103">		int res = -1;</span>
+		
+<span class="fc bfc" id="L105" title="All 4 branches covered.">		if (medicionuno &lt; 0 || medicionuno &gt; 100) {</span>
+<span class="fc" id="L106">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L107" title="1 of 4 branches missed.">		} else if (medicionuno &gt;= 0 &amp;&amp; medicionuno &lt; 10) {</span>
+<span class="fc" id="L108">			res =  0;</span>
+<span class="pc bpc" id="L109" title="1 of 4 branches missed.">		} else if (medicionuno &gt;= 10 &amp;&amp; medicionuno &lt; 35) {</span>
+<span class="fc" id="L110">			res =  1;</span>
+<span class="pc bpc" id="L111" title="1 of 4 branches missed.">		} else if (medicionuno &gt;= 35 &amp;&amp; medicionuno &lt; 50) {</span>
+<span class="fc" id="L112">			res =  2;</span>
+<span class="pc bpc" id="L113" title="1 of 4 branches missed.">		} else if (medicionuno &gt;= 50 &amp;&amp; medicionuno &lt; 70) {</span>
+<span class="fc" id="L114">			res =  2;</span>
+<span class="pc bpc" id="L115" title="1 of 4 branches missed.">		} else if (medicionuno &gt;= 70 &amp;&amp; medicionuno &lt; 90) {</span>
+<span class="fc" id="L116">			res =  3;</span>
+<span class="pc bpc" id="L117" title="2 of 4 branches missed.">		} else if (medicionuno &gt;= 90 &amp;&amp; medicionuno &lt;= 100) {</span>
+<span class="fc" id="L118">			res =  4;</span>
+		}
+		
+<span class="fc" id="L121">		return res;</span>
+
+	}
+
+	public static int obtenerCorFunc (int mediciondos) throws Exception {
+		
+		
+<span class="fc" id="L128">		int res = -1;</span>
+		
+<span class="fc bfc" id="L130" title="All 4 branches covered.">		if (mediciondos &lt; 0 || mediciondos &gt; 100) {</span>
+<span class="fc" id="L131">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L132" title="1 of 4 branches missed.">		} else if (mediciondos &gt;= 0 &amp;&amp; mediciondos &lt; 10) {</span>
+<span class="fc" id="L133">			res =  0;</span>
+<span class="pc bpc" id="L134" title="1 of 4 branches missed.">		} else if (mediciondos &gt;= 10 &amp;&amp; mediciondos &lt; 35) {</span>
+<span class="fc" id="L135">			res =  1;</span>
+<span class="pc bpc" id="L136" title="1 of 4 branches missed.">		} else if (mediciondos &gt;= 35 &amp;&amp; mediciondos &lt; 50) {</span>
+<span class="fc" id="L137">			res =  1;</span>
+<span class="pc bpc" id="L138" title="1 of 4 branches missed.">		} else if (mediciondos &gt;= 50 &amp;&amp; mediciondos &lt; 70) {</span>
+<span class="fc" id="L139">			res =  2;</span>
+<span class="pc bpc" id="L140" title="1 of 4 branches missed.">		} else if (mediciondos &gt;= 70 &amp;&amp; mediciondos &lt; 90) {</span>
+<span class="fc" id="L141">			res =  3;</span>
+<span class="pc bpc" id="L142" title="2 of 4 branches missed.">		} else if (mediciondos &gt;= 90 &amp;&amp; mediciondos &lt;= 100) {</span>
+<span class="fc" id="L143">			res =  5;</span>
+		}
+		
+<span class="fc" id="L146">		return res;</span>
+
+	}
+
+	public static int obtenerPertFunc (int mediciontres) throws Exception {
+		
+		
+<span class="fc" id="L153">		int res = -1;</span>
+		
+<span class="fc bfc" id="L155" title="All 4 branches covered.">		if (mediciontres &lt; 0 || mediciontres &gt; 100) {</span>
+<span class="fc" id="L156">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L157" title="1 of 4 branches missed.">		} else if (mediciontres &gt;= 0 &amp;&amp; mediciontres &lt; 10) {</span>
+<span class="fc" id="L158">			res =  0;</span>
+<span class="pc bpc" id="L159" title="1 of 4 branches missed.">		} else if (mediciontres &gt;= 10 &amp;&amp; mediciontres &lt; 35) {</span>
+<span class="fc" id="L160">			res =  2;</span>
+<span class="pc bpc" id="L161" title="1 of 4 branches missed.">		} else if (mediciontres &gt;= 35 &amp;&amp; mediciontres &lt; 50) {</span>
+<span class="fc" id="L162">			res =  2;</span>
+<span class="pc bpc" id="L163" title="1 of 4 branches missed.">		} else if (mediciontres &gt;= 50 &amp;&amp; mediciontres &lt; 70) {</span>
+<span class="fc" id="L164">			res =  3;</span>
+<span class="pc bpc" id="L165" title="1 of 4 branches missed.">		} else if (mediciontres &gt;= 70 &amp;&amp; mediciontres &lt; 90) {</span>
+<span class="fc" id="L166">			res =  4;</span>
+<span class="pc bpc" id="L167" title="2 of 4 branches missed.">		} else if (mediciontres &gt;= 90 &amp;&amp; mediciontres &lt;= 100) {</span>
+<span class="fc" id="L168">			res =  5;</span>
+		}
+		
+<span class="fc" id="L171">		return res;</span>
+
+	}
+
+	public static int obtenerAdecuacionFuncional (int compfunc, int corfunc, int pertfunc) throws Exception {
+
+<span class="pc bpc" id="L177" title="4 of 12 branches missed.">		if(compfunc &lt; 0 || corfunc &lt; 0 || pertfunc &lt; 0 || compfunc &gt; 4 || corfunc &gt; 5 || pertfunc &gt; 5) {</span>
+<span class="fc" id="L178">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+		}
+		
+<span class="fc" id="L181">		int[] v = new int[] {compfunc, corfunc, pertfunc};</span>
+		
+<span class="fc" id="L183">		int minimo = min(v);</span>
+		
+<span class="fc" id="L185">		return minimo;</span>
+	}
+
+	public static int obtenerModu (int medicioncuatro) throws Exception {
+		
+<span class="fc" id="L190">		int res = -1;</span>
+		
+<span class="fc bfc" id="L192" title="All 4 branches covered.">		if(medicioncuatro &lt; 0 || medicioncuatro &gt; 100) {</span>
+<span class="fc" id="L193">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L194" title="1 of 4 branches missed.">		} else if (medicioncuatro &gt;= 0 &amp;&amp; medicioncuatro &lt; 10) {</span>
+<span class="fc" id="L195">			res =  0;</span>
+<span class="pc bpc" id="L196" title="1 of 4 branches missed.">		} else if (medicioncuatro &gt;= 10 &amp;&amp; medicioncuatro &lt; 35) {</span>
+<span class="fc" id="L197">			res =  1;</span>
+<span class="pc bpc" id="L198" title="1 of 4 branches missed.">		} else if (medicioncuatro &gt;= 35 &amp;&amp; medicioncuatro &lt; 50) {</span>
+<span class="fc" id="L199">			res =  2;</span>
+<span class="pc bpc" id="L200" title="1 of 4 branches missed.">		} else if (medicioncuatro &gt;= 50 &amp;&amp; medicioncuatro &lt; 70) {</span>
+<span class="fc" id="L201">			res =  2;</span>
+<span class="pc bpc" id="L202" title="1 of 4 branches missed.">		} else if (medicioncuatro &gt;= 70 &amp;&amp; medicioncuatro &lt; 90) {</span>
+<span class="fc" id="L203">			res =  3;</span>
+<span class="pc bpc" id="L204" title="2 of 4 branches missed.">		} else if (medicioncuatro &gt;= 90 &amp;&amp; medicioncuatro &lt;= 100) {</span>
+<span class="fc" id="L205">			res =  4;</span>
+		}
+		
+<span class="fc" id="L208">		return res;</span>
+
+	}
+
+	public static int obtenerReusa (int medicioncinco) throws Exception {
+		
+		
+<span class="fc" id="L215">		int res = -1;</span>
+		
+<span class="fc bfc" id="L217" title="All 4 branches covered.">		if(medicioncinco &lt; 0 || medicioncinco &gt; 100) {</span>
+<span class="fc" id="L218">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L219" title="1 of 4 branches missed.">		} else if (medicioncinco &gt;= 0 &amp;&amp; medicioncinco &lt; 10) {</span>
+<span class="fc" id="L220">			res =  0;</span>
+<span class="pc bpc" id="L221" title="1 of 4 branches missed.">		} else if (medicioncinco &gt;= 10 &amp;&amp; medicioncinco &lt; 35) {</span>
+<span class="fc" id="L222">			res =  1;</span>
+<span class="pc bpc" id="L223" title="1 of 4 branches missed.">		} else if (medicioncinco &gt;= 35 &amp;&amp; medicioncinco &lt; 50) {</span>
+<span class="fc" id="L224">			res =  2;</span>
+<span class="pc bpc" id="L225" title="1 of 4 branches missed.">		} else if (medicioncinco &gt;= 50 &amp;&amp; medicioncinco &lt; 70) {</span>
+<span class="fc" id="L226">			res =  2;</span>
+<span class="pc bpc" id="L227" title="1 of 4 branches missed.">		} else if (medicioncinco &gt;= 70 &amp;&amp; medicioncinco &lt; 90) {</span>
+<span class="fc" id="L228">			res =  3;</span>
+<span class="pc bpc" id="L229" title="2 of 4 branches missed.">		} else if (medicioncinco &gt;= 90 &amp;&amp; medicioncinco &lt;= 100) {</span>
+<span class="fc" id="L230">			res =  5;</span>
+		}
+		
+<span class="fc" id="L233">		return res;</span>
+
+	}
+
+	public static int obtenerAna (int medicionseis) throws Exception {
+		
+		
+<span class="fc" id="L240">		int res = -1;</span>
+		
+<span class="fc bfc" id="L242" title="All 4 branches covered.">		if(medicionseis &lt; 0 || medicionseis &gt; 100) {</span>
+<span class="fc" id="L243">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L244" title="1 of 4 branches missed.">		} else if (medicionseis &gt;= 0 &amp;&amp; medicionseis &lt; 10) {</span>
+<span class="fc" id="L245">			res =  0;</span>
+<span class="pc bpc" id="L246" title="1 of 4 branches missed.">		} else if (medicionseis &gt;= 10 &amp;&amp; medicionseis &lt; 35) {</span>
+<span class="fc" id="L247">			res =  0;</span>
+<span class="pc bpc" id="L248" title="1 of 4 branches missed.">		} else if (medicionseis &gt;= 35 &amp;&amp; medicionseis &lt; 50) {</span>
+<span class="fc" id="L249">			res =  1;</span>
+<span class="pc bpc" id="L250" title="1 of 4 branches missed.">		} else if (medicionseis &gt;= 50 &amp;&amp; medicionseis &lt; 70) {</span>
+<span class="fc" id="L251">			res =  2;</span>
+<span class="pc bpc" id="L252" title="1 of 4 branches missed.">		} else if (medicionseis &gt;= 70 &amp;&amp; medicionseis &lt; 90) {</span>
+<span class="fc" id="L253">			res =  3;</span>
+<span class="pc bpc" id="L254" title="2 of 4 branches missed.">		} else if (medicionseis &gt;= 90 &amp;&amp; medicionseis &lt;= 100) {</span>
+<span class="fc" id="L255">			res =  5;</span>
+		}
+		
+<span class="fc" id="L258">		return res;</span>
+
+	}
+
+	public static int obtenerCapModificacion (int medicionsiete) throws Exception {
+		
+		
+<span class="fc" id="L265">		int res = -1;</span>
+		
+<span class="fc bfc" id="L267" title="All 4 branches covered.">		if(medicionsiete &lt; 0 || medicionsiete &gt; 100) {</span>
+<span class="fc" id="L268">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L269" title="1 of 4 branches missed.">		} else if (medicionsiete &gt;= 0 &amp;&amp; medicionsiete &lt; 10) {</span>
+<span class="fc" id="L270">			res =  0;</span>
+<span class="pc bpc" id="L271" title="1 of 4 branches missed.">		} else if (medicionsiete &gt;= 10 &amp;&amp; medicionsiete &lt; 35) {</span>
+<span class="fc" id="L272">			res =  1;</span>
+<span class="pc bpc" id="L273" title="1 of 4 branches missed.">		} else if (medicionsiete &gt;= 35 &amp;&amp; medicionsiete &lt; 50) {</span>
+<span class="fc" id="L274">			res =  2;</span>
+<span class="pc bpc" id="L275" title="1 of 4 branches missed.">		} else if (medicionsiete &gt;= 50 &amp;&amp; medicionsiete &lt; 70) {</span>
+<span class="fc" id="L276">			res =  3;</span>
+<span class="pc bpc" id="L277" title="1 of 4 branches missed.">		} else if (medicionsiete &gt;= 70 &amp;&amp; medicionsiete &lt; 90) {</span>
+<span class="fc" id="L278">			res =  4;</span>
+<span class="pc bpc" id="L279" title="2 of 4 branches missed.">		} else if (medicionsiete &gt;= 90 &amp;&amp; medicionsiete &lt;= 100) {</span>
+<span class="fc" id="L280">			res =  5;</span>
+		}
+		
+<span class="fc" id="L283">		return res;</span>
+	}
+
+	public static int obtenerCapSerProbado(int medicionocho) throws Exception {
+		
+		
+<span class="fc" id="L289">		int res = -1;</span>
+		
+<span class="fc bfc" id="L291" title="All 4 branches covered.">		if(medicionocho &lt; 0 || medicionocho &gt; 100) {</span>
+<span class="fc" id="L292">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+<span class="pc bpc" id="L293" title="1 of 4 branches missed.">		} else if (medicionocho &gt;= 0 &amp;&amp; medicionocho &lt; 10) {</span>
+<span class="fc" id="L294">			res =  0;</span>
+<span class="pc bpc" id="L295" title="1 of 4 branches missed.">		} else if (medicionocho &gt;= 10 &amp;&amp; medicionocho &lt; 35) {</span>
+<span class="fc" id="L296">			res =  1;</span>
+<span class="pc bpc" id="L297" title="1 of 4 branches missed.">		} else if (medicionocho &gt;= 35 &amp;&amp; medicionocho &lt; 50) {</span>
+<span class="fc" id="L298">			res =  1;</span>
+<span class="pc bpc" id="L299" title="1 of 4 branches missed.">		} else if (medicionocho &gt;= 50 &amp;&amp; medicionocho &lt; 70) {</span>
+<span class="fc" id="L300">			res =  2;</span>
+<span class="pc bpc" id="L301" title="1 of 4 branches missed.">		} else if (medicionocho &gt;= 70 &amp;&amp; medicionocho &lt; 90) {</span>
+<span class="fc" id="L302">			res =  4;</span>
+<span class="pc bpc" id="L303" title="2 of 4 branches missed.">		} else if (medicionocho &gt;= 90 &amp;&amp; medicionocho &lt;= 100) {</span>
+<span class="fc" id="L304">			res =  4;</span>
+		}
+		
+<span class="fc" id="L307">		return res;</span>
+	}
+
+	public static int obtenerMantenibilidad (int modularidad, int reusabilidad, int analizabilidad, int capmodificacion, int capserprobado) throws Exception {
+
+<span class="pc bpc" id="L312" title="4 of 10 branches missed.">		if(modularidad &lt; 0 ||reusabilidad &lt; 0 ||analizabilidad &lt; 0 ||capmodificacion &lt; 0 ||capserprobado &lt; 0 </span>
+<span class="pc bpc" id="L313" title="4 of 10 branches missed.">				|| modularidad &gt; 4 || reusabilidad &gt; 5 || analizabilidad &gt; 5 || capmodificacion &gt; 5 || capserprobado &gt; 4){</span>
+<span class="fc" id="L314">			throw new Exception(&quot;Error: El valor introducido no es valido. Fin de programa&quot;);</span>
+		}
+		
+<span class="fc" id="L317">		int[] v = new int[] {modularidad, reusabilidad, analizabilidad, capmodificacion, capserprobado};</span>
+		
+<span class="fc" id="L319">		int minimo = min(v);</span>
+		
+<span class="fc" id="L321">		return minimo;</span>
+	}
+
+	public static boolean evaluacionCalidad (int mantenibilidad, int adfuncional){
+		
+<span class="fc" id="L326">		int[] v = new int[] {mantenibilidad, adfuncional};</span>
+		
+<span class="fc" id="L328">		int res = min(v);</span>
+		
+<span class="fc bfc" id="L330" title="All 2 branches covered.">		if (res &gt;= 3) {</span>
+<span class="fc" id="L331">			return true;</span>
+		} else {
+<span class="fc" id="L333">			return false;</span>
+		}
+		
+	}
+
+	public static int min(int [] array) {
+<span class="fc" id="L339">	      int min = array[0];</span>
+	     
+<span class="fc bfc" id="L341" title="All 2 branches covered.">	      for(int i=0; i&lt;array.length; i++ ) {</span>
+<span class="fc bfc" id="L342" title="All 2 branches covered.">	         if(array[i]&lt;min) {</span>
+<span class="fc" id="L343">	            min = array[i];</span>
+	         }
+	      }
+<span class="fc" id="L346">	      return min;</span>
+	}
+	
+	public static int leerCosas() throws Exception {
+	
+<span class="nc" id="L351">		int tecto = -1;</span>
+		
+		try {
+<span class="nc" id="L354">			Scanner tengohambre = new Scanner(System.in);  // Create a Scanner object</span>
+<span class="nc" id="L355">			tecto = tengohambre.nextInt();  // Read user input</span>
+<span class="nc" id="L356">			tengohambre.close();</span>
+<span class="nc" id="L357">		} catch (Exception e) {</span>
+<span class="nc" id="L358">			System.out.print(&quot;Error al insertar un valor. Fin de programa&quot;);</span>
+<span class="nc" id="L359">			System.exit(-1);</span>
+		}
+
+		
+<span class="nc" id="L363">		return tecto;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
